@@ -1,4 +1,4 @@
-# step1 Random choose the missense Vriants
+# step1 Random choose the missense Vriants 
 import pandas_gbq
 import pandas as pd
 import os
