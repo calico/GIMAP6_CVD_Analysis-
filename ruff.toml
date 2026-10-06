@@ -1,3 +1,5 @@
+required-version = "==0.16.10"
+
 # Three scripts have no .py extension; include them so ruff formats them too.
 extend-include = [
   "Scripts",

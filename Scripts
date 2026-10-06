@@ -1169,15 +1169,19 @@ def run_analysis_per_disease(workspace_cdr):
             ).copy()
             # Format P-value to be '<0.0001' if very small
             or_p_df_display["P-value"] = or_p_df_display["P-value"].apply(
-                lambda x: "<0.0001"
-                if isinstance(x, (float, np.float64)) and x < 0.0001
-                else (f"{x:.4f}" if isinstance(x, (float, np.float64)) else "N/A")
+                lambda x: (
+                    "<0.0001"
+                    if isinstance(x, (float, np.float64)) and x < 0.0001
+                    else (f"{x:.4f}" if isinstance(x, (float, np.float64)) else "N/A")
+                )
             )
             # Format CI string
             or_p_df_display["95% CI"] = or_p_df_display.apply(
-                lambda row: f"({row['Lower CI']:.2f}-{row['Upper CI']:.2f})"
-                if pd.notna(row["Lower CI"]) and pd.notna(row["Upper CI"])
-                else "N/A",
+                lambda row: (
+                    f"({row['Lower CI']:.2f}-{row['Upper CI']:.2f})"
+                    if pd.notna(row["Lower CI"]) and pd.notna(row["Upper CI"])
+                    else "N/A"
+                ),
                 axis=1,
             )
             # Select and reorder columns for display

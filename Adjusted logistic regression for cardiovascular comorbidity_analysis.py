@@ -284,7 +284,7 @@ def get_pca_data(pca_file_path, num_pcs_to_use=20):
         col for i, col in enumerate(pca_cols) if i < pca_features_expanded.shape[1]
     ]
     pca_features_expanded.columns = [
-        f"PC{i+1}" for i in range(pca_features_expanded.shape[1])
+        f"PC{i + 1}" for i in range(pca_features_expanded.shape[1])
     ]
     pca_df_final = pd.concat(
         [pca_df["person_id"], pca_features_expanded[available_pcs]], axis=1
@@ -665,9 +665,9 @@ def summarize_and_report(all_results):
         reject_fdr, p_values_fdr_corrected, _, _ = multipletests(
             p_values_for_correction, alpha=0.05, method="fdr_bh"
         )
-        results_df.loc[
-            p_values_for_correction.index, "FDR_Corrected_P_value"
-        ] = p_values_fdr_corrected
+        results_df.loc[p_values_for_correction.index, "FDR_Corrected_P_value"] = (
+            p_values_fdr_corrected
+        )
         results_df.loc[p_values_for_correction.index, "FDR_Significant"] = [
             "Significant" if r else "Not Significant" for r in reject_fdr
         ]
@@ -751,9 +751,9 @@ def main():
     }
 
     for analysis_name, timing_param in analysis_types.items():
-        print(f"\n\n{'='*100}\n{'='*100}")
+        print(f"\n\n{'=' * 100}\n{'=' * 100}")
         print(f"     STARTING ANALYSIS RUN: {analysis_name}")
-        print(f"{'='*100}\n{'='*100}\n")
+        print(f"{'=' * 100}\n{'=' * 100}\n")
 
         # STEP 2: DATA FETCH FOR THE CURRENT ANALYSIS TYPE
         print(
@@ -861,7 +861,7 @@ def main():
 
         for scenario_name, params in analysis_scenarios.items():
             print(
-                f"\n\n{'#'*80}\n##### STARTING SCENARIO: {analysis_name}, {scenario_name} (Age <= {params['max_age']}) #####\n{'#'*80}"
+                f"\n\n{'#' * 80}\n##### STARTING SCENARIO: {analysis_name}, {scenario_name} (Age <= {params['max_age']}) #####\n{'#' * 80}"
             )
 
             scenario_data = data[data["age"] <= params["max_age"]].copy()

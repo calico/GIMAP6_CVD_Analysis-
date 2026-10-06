@@ -123,7 +123,7 @@ VARIANTS = {
     "APOE_rs7412": ["19-44908822-C-T"],
 }
 for i, vid in enumerate(NEW_CONTROL_VARIANTS_100):
-    VARIANTS[f"CONTROL_{i+1}"] = [vid]
+    VARIANTS[f"CONTROL_{i + 1}"] = [vid]
 
 
 # --- HELPER FUNCTIONS ---
@@ -146,8 +146,8 @@ def create_query_simplified(workspace_cdr, variants_map):
         JOIN `{workspace_cdr}.cb_search_person` AS cbsp ON p.person_id = cbsp.person_id
         JOIN `{workspace_cdr}.concept` AS c_gender ON p.gender_concept_id = c_gender.concept_id
         LEFT JOIN `{workspace_cdr}.cb_search_all_events` AS e ON p.person_id = e.person_id
-        {' '.join(variant_sqls)} WHERE p.race_concept_id = 8516 AND cbsp.has_ehr_data = 1 AND cbsp.has_whole_genome_variant = 1
-        GROUP BY 1, 2, 3, 4, 5, {', '.join([str(i) for i in range(7, 7 + len(variants_map))])} HAVING MAX(e.entry_date) IS NOT NULL
+        {" ".join(variant_sqls)} WHERE p.race_concept_id = 8516 AND cbsp.has_ehr_data = 1 AND cbsp.has_whole_genome_variant = 1
+        GROUP BY 1, 2, 3, 4, 5, {", ".join([str(i) for i in range(7, 7 + len(variants_map))])} HAVING MAX(e.entry_date) IS NOT NULL
     """
     return main_query
 
@@ -492,7 +492,7 @@ def run_unified_analysis(workspace_cdr, all_variants_map):
     # --- PART 1: BINARY ODDS RATIO ANALYSIS ---
     binary_cutoffs = [75, 80, 85]
     print(
-        f"\n\n{'='*80}\n>>> PART 1: Binary Odds Ratio Analysis for cutoffs: {binary_cutoffs}\n{'='*80}"
+        f"\n\n{'=' * 80}\n>>> PART 1: Binary Odds Ratio Analysis for cutoffs: {binary_cutoffs}\n{'=' * 80}"
     )
     all_binary_results = []
     for cutoff in binary_cutoffs:
@@ -558,7 +558,7 @@ def run_unified_analysis(workspace_cdr, all_variants_map):
     ]
     for config in stratified_configs:
         print(
-            f"\n\n{'='*80}\n>>> PART 2: Stratified Analysis ({config['name']})\n{'='*80}"
+            f"\n\n{'=' * 80}\n>>> PART 2: Stratified Analysis ({config['name']})\n{'=' * 80}"
         )
         data["age_bin"] = pd.cut(
             data["age"], bins=config["bins"], labels=config["labels"], right=False
@@ -673,7 +673,7 @@ def run_unified_analysis(workspace_cdr, all_variants_map):
                 }
                 print(stats_df.to_string(index=False, formatters=formatters_stats))
 
-    print(f"\n\n{'#'*80}\n          Full Analysis Workflow Complete ✅\n{'#'*80}")
+    print(f"\n\n{'#' * 80}\n          Full Analysis Workflow Complete ✅\n{'#' * 80}")
 
 
 def main():

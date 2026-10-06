@@ -34,15 +34,15 @@ min_ehr_years = 5
 case_cohort_sql = f"""
 WITH ehr_summary AS (
     SELECT person_id, MIN(visit_start_date) as first_visit_date, DATE_DIFF(MAX(visit_start_date), MIN(visit_start_date), DAY) / 365.25 AS ehr_years
-    FROM `{os.environ['WORKSPACE_CDR']}.visit_occurrence` GROUP BY person_id
+    FROM `{os.environ["WORKSPACE_CDR"]}.visit_occurrence` GROUP BY person_id
 )
 SELECT p.person_id, p.sex_at_birth_concept_id, p.race_concept_id, 
        DATE_DIFF(summary.first_visit_date, CAST(p.birth_datetime AS DATE), YEAR) AS age_at_first_visit, 
        summary.ehr_years
-FROM `{os.environ['WORKSPACE_CDR']}.person` AS p
-JOIN `{os.environ['WORKSPACE_CDR']}.cb_search_person` AS cbsp ON p.person_id = cbsp.person_id
+FROM `{os.environ["WORKSPACE_CDR"]}.person` AS p
+JOIN `{os.environ["WORKSPACE_CDR"]}.cb_search_person` AS cbsp ON p.person_id = cbsp.person_id
 JOIN ehr_summary AS summary ON p.person_id = summary.person_id
-WHERE p.person_id IN ({','.join(map(str, case_person_ids))})
+WHERE p.person_id IN ({",".join(map(str, case_person_ids))})
   AND p.race_concept_id IN ({case_race_sql_string})
   AND cbsp.has_ehr_data = 1
   AND cbsp.has_whole_genome_variant = 1
@@ -56,13 +56,13 @@ control_cohort_sql = f"""
 SELECT p.person_id, p.sex_at_birth_concept_id, p.race_concept_id,
         DATE_DIFF(MIN(v.visit_start_date), CAST(p.birth_datetime AS DATE), YEAR) AS age_at_first_visit,
        DATE_DIFF(MAX(v.visit_start_date), MIN(v.visit_start_date), DAY) / 365.25 AS ehr_years
-FROM `{os.environ['WORKSPACE_CDR']}.person` AS p
-JOIN `{os.environ['WORKSPACE_CDR']}.cb_search_person` AS cbsp ON p.person_id = cbsp.person_id
-JOIN `{os.environ['WORKSPACE_CDR']}.visit_occurrence` AS v ON p.person_id = v.person_id
+FROM `{os.environ["WORKSPACE_CDR"]}.person` AS p
+JOIN `{os.environ["WORKSPACE_CDR"]}.cb_search_person` AS cbsp ON p.person_id = cbsp.person_id
+JOIN `{os.environ["WORKSPACE_CDR"]}.visit_occurrence` AS v ON p.person_id = v.person_id
 WHERE p.race_concept_id = {control_race_id}
   AND cbsp.has_ehr_data = 1
   AND cbsp.has_whole_genome_variant = 1
-  AND p.person_id NOT IN ({','.join(map(str, case_person_ids))})
+  AND p.person_id NOT IN ({",".join(map(str, case_person_ids))})
 GROUP BY p.person_id, p.sex_at_birth_concept_id, p.race_concept_id, p.birth_datetime
 HAVING DATE_DIFF(MAX(v.visit_start_date), MIN(v.visit_start_date), DAY) / 365.25 >= {min_ehr_years}
 LIMIT 70000
@@ -76,7 +76,7 @@ try:
     # This query now uses the method you showed me, which should be correct.
     variant_carriers_sql = f"""
     SELECT DISTINCT person_id_unnested AS person_id
-    FROM `{os.environ['WORKSPACE_CDR']}.cb_variant_to_person`
+    FROM `{os.environ["WORKSPACE_CDR"]}.cb_variant_to_person`
     CROSS JOIN UNNEST(person_ids) AS person_id_unnested
     WHERE vid = '{variant_to_exclude}'
     """
@@ -191,9 +191,9 @@ all_person_ids_to_check = pd.concat(
 if all_person_ids_to_check:
     comprehensive_sql = f"""
     SELECT DISTINCT person_id, condition_concept_id 
-    FROM `{os.environ['WORKSPACE_CDR']}.condition_occurrence` 
-    WHERE person_id IN ({','.join(map(str, all_person_ids_to_check))})
-      AND condition_concept_id IN ({','.join(map(str, all_concepts_to_query))})
+    FROM `{os.environ["WORKSPACE_CDR"]}.condition_occurrence` 
+    WHERE person_id IN ({",".join(map(str, all_person_ids_to_check))})
+      AND condition_concept_id IN ({",".join(map(str, all_concepts_to_query))})
     """
     all_conditions_df = pd.read_gbq(comprehensive_sql, progress_bar_type=None)
 
@@ -227,8 +227,8 @@ if all_person_ids_to_check:
     table1_data.append(
         {
             "Characteristic": "Sex (% Female)",
-            f"Cases (N={total_cases})": f"{cases_female} ({cases_female/total_cases*100:.1f}%)",
-            f"Controls (N={total_controls})": f"{controls_female} ({controls_female/total_controls*100:.1f}%)",
+            f"Cases (N={total_cases})": f"{cases_female} ({cases_female / total_cases * 100:.1f}%)",
+            f"Controls (N={total_controls})": f"{controls_female} ({controls_female / total_controls * 100:.1f}%)",
             "P-Value": f"{sex_p_value:.3f}",
         }
     )

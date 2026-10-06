@@ -347,7 +347,7 @@ def create_query_simplified(workspace_cdr, variants_map):
     JOIN `{workspace_cdr}.cb_search_person` AS cbsp ON p.person_id = cbsp.person_id
     JOIN `{workspace_cdr}.concept` AS c_gender ON p.gender_concept_id = c_gender.concept_id
     LEFT JOIN `{workspace_cdr}.cb_search_all_events` AS e ON p.person_id = e.person_id
-    {' '.join(variant_sqls)}
+    {" ".join(variant_sqls)}
     WHERE
         p.race_concept_id = 8516 -- Filters for individuals of Black or African American race
         AND cbsp.has_ehr_data = 1 -- Ensures they have Electronic Health Record data
