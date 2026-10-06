@@ -1,0 +1,11 @@
+# All of these are preinstalled in an All of Us Researcher Workbench Jupyter environment.
+google-cloud-bigquery
+hail
+ipython
+matplotlib
+numpy
+pandas
+pandas-gbq
+scipy
+seaborn
+statsmodels

@@ -14,22 +14,132 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 # --- Define Gene Variants ---
 NEW_CONTROL_VARIANTS_100 = [
-    '10-69880518-G-A', '19-9093977-C-G', '18-6958478-C-G', '2-227047532-C-T', '15-78764626-C-T', '15-67208595-T-C', '17-40703083-T-C', '4-1841793-C-T', '6-152354758-T-G', '12-113207704-C-T', '5-179888308-G-C', '16-72957801-G-A', '17-41821800-G-A', '5-181234274-C-G', '7-158656267-G-A', '10-100496301-C-T', '12-100047629-G-A', '10-100496301-C-T', '19-47752515-C-T', '1-12760938-T-A', '15-101382122-A-G', '1-158717190-A-G', '8-20171474-C-T', '10-68885225-G-C', '18-58535835-A-G', '11-34152485-C-T', '9-133408778-C-T', '17-7421228-G-A', '11-3218608-A-T', '19-5455504-C-T', '18-22417021-T-C', '19-52435198-G-A', '17-18229963-A-G', '11-6558604-T-C', '17-74850679-C-T', '2-74472457-T-C', '1-171282058-T-C', '12-1952789-C-T', '16-20669923-A-C', '1-198713049-C-T', '16-482705-G-A', '1-61787929-T-C', '11-100973305-G-A', '9-104599011-T-A', '7-127600301-G-A', '8-26634888-G-T', '11-3218608-A-T', '11-5633806-G-C', '2-149576442-C-T', '19-54463168-A-C', '1-152511721-G-A', '1-200600455-C-T', '17-41811824-T-C', '8-37872968-T-C', '9-87886499-C-T', '4-152974834-C-A', '17-46872720-G-A', '3-53179675-G-C', '15-40340873-G-A', '22-37715810-C-A', '7-101005323-A-T', '11-102713365-T-C', '9-35042418-G-A', '20-39010379-A-G', '17-6759699-C-A', '1-200600455-C-T', '8-38952236-T-A', '7-129451649-C-G', '3-72750397-C-T', '11-48306242-T-C', '10-132208071-T-C', '1-45343310-G-A', '6-158086882-G-A', '11-72712555-G-A', '4-140911162-C-T', '3-122613219-T-C', '11-619022-G-A', '3-195568937-G-T', '9-33629318-G-A', '4-69495624-A-G', '1-225206126-A-G', '12-102852837-T-C', '3-46743058-G-T', '9-135693679-G-A', '2-127489234-T-C', '8-39275845-G-A', '12-101190550-A-C', '16-55328804-G-T', '9-5920900-A-C', '16-1420377-T-A', '16-1787787-C-T', '5-146000199-T-G', '19-10357771-G-T', '11-60729505-G-C', '16-3519909-G-T', '2-48709006-C-T', '7-149817742-G-A', '7-2432817-C-T', '19-49436724-C-T', '19-42732964-T-C'
+    "10-69880518-G-A",
+    "19-9093977-C-G",
+    "18-6958478-C-G",
+    "2-227047532-C-T",
+    "15-78764626-C-T",
+    "15-67208595-T-C",
+    "17-40703083-T-C",
+    "4-1841793-C-T",
+    "6-152354758-T-G",
+    "12-113207704-C-T",
+    "5-179888308-G-C",
+    "16-72957801-G-A",
+    "17-41821800-G-A",
+    "5-181234274-C-G",
+    "7-158656267-G-A",
+    "10-100496301-C-T",
+    "12-100047629-G-A",
+    "10-100496301-C-T",
+    "19-47752515-C-T",
+    "1-12760938-T-A",
+    "15-101382122-A-G",
+    "1-158717190-A-G",
+    "8-20171474-C-T",
+    "10-68885225-G-C",
+    "18-58535835-A-G",
+    "11-34152485-C-T",
+    "9-133408778-C-T",
+    "17-7421228-G-A",
+    "11-3218608-A-T",
+    "19-5455504-C-T",
+    "18-22417021-T-C",
+    "19-52435198-G-A",
+    "17-18229963-A-G",
+    "11-6558604-T-C",
+    "17-74850679-C-T",
+    "2-74472457-T-C",
+    "1-171282058-T-C",
+    "12-1952789-C-T",
+    "16-20669923-A-C",
+    "1-198713049-C-T",
+    "16-482705-G-A",
+    "1-61787929-T-C",
+    "11-100973305-G-A",
+    "9-104599011-T-A",
+    "7-127600301-G-A",
+    "8-26634888-G-T",
+    "11-3218608-A-T",
+    "11-5633806-G-C",
+    "2-149576442-C-T",
+    "19-54463168-A-C",
+    "1-152511721-G-A",
+    "1-200600455-C-T",
+    "17-41811824-T-C",
+    "8-37872968-T-C",
+    "9-87886499-C-T",
+    "4-152974834-C-A",
+    "17-46872720-G-A",
+    "3-53179675-G-C",
+    "15-40340873-G-A",
+    "22-37715810-C-A",
+    "7-101005323-A-T",
+    "11-102713365-T-C",
+    "9-35042418-G-A",
+    "20-39010379-A-G",
+    "17-6759699-C-A",
+    "1-200600455-C-T",
+    "8-38952236-T-A",
+    "7-129451649-C-G",
+    "3-72750397-C-T",
+    "11-48306242-T-C",
+    "10-132208071-T-C",
+    "1-45343310-G-A",
+    "6-158086882-G-A",
+    "11-72712555-G-A",
+    "4-140911162-C-T",
+    "3-122613219-T-C",
+    "11-619022-G-A",
+    "3-195568937-G-T",
+    "9-33629318-G-A",
+    "4-69495624-A-G",
+    "1-225206126-A-G",
+    "12-102852837-T-C",
+    "3-46743058-G-T",
+    "9-135693679-G-A",
+    "2-127489234-T-C",
+    "8-39275845-G-A",
+    "12-101190550-A-C",
+    "16-55328804-G-T",
+    "9-5920900-A-C",
+    "16-1420377-T-A",
+    "16-1787787-C-T",
+    "5-146000199-T-G",
+    "19-10357771-G-T",
+    "11-60729505-G-C",
+    "16-3519909-G-T",
+    "2-48709006-C-T",
+    "7-149817742-G-A",
+    "7-2432817-C-T",
+    "19-49436724-C-T",
+    "19-42732964-T-C",
 ]
 VARIANTS = {
-    "GIMAP6_V65I": ['7-150628405-C-T'], "TTR_V122I": ['18-31598655-G-A'], "GIMAP6_Q237R": ['7-150627888-T-C'],
-    "APOE_rs429358": ['19-44908684-T-C'], "APOE_rs7412": ['19-44908822-C-T'],
+    "GIMAP6_V65I": ["7-150628405-C-T"],
+    "TTR_V122I": ["18-31598655-G-A"],
+    "GIMAP6_Q237R": ["7-150627888-T-C"],
+    "APOE_rs429358": ["19-44908684-T-C"],
+    "APOE_rs7412": ["19-44908822-C-T"],
 }
 for i, vid in enumerate(NEW_CONTROL_VARIANTS_100):
     VARIANTS[f"CONTROL_{i+1}"] = [vid]
+
 
 # --- HELPER FUNCTIONS ---
 def create_query_simplified(workspace_cdr, variants_map):
     variant_sqls = []
     for label, vids in variants_map.items():
-        vid_list = ', '.join([f"'{vid}'" for vid in vids])
-        variant_sqls.append(f"LEFT JOIN (SELECT DISTINCT person_id_unnested AS person_id FROM `{workspace_cdr}.cb_variant_to_person` CROSS JOIN UNNEST(person_ids) AS person_id_unnested WHERE vid IN ({vid_list})) AS {label.lower()}_variant_carriers ON p.person_id = {label.lower()}_variant_carriers.person_id")
-    variant_select_sql = ", ".join([f"CASE WHEN {label.lower()}_variant_carriers.person_id IS NOT NULL THEN 1 ELSE 0 END AS is_{label.lower()}_carrier" for label in variants_map.keys()])
+        vid_list = ", ".join([f"'{vid}'" for vid in vids])
+        variant_sqls.append(
+            f"LEFT JOIN (SELECT DISTINCT person_id_unnested AS person_id FROM `{workspace_cdr}.cb_variant_to_person` CROSS JOIN UNNEST(person_ids) AS person_id_unnested WHERE vid IN ({vid_list})) AS {label.lower()}_variant_carriers ON p.person_id = {label.lower()}_variant_carriers.person_id"
+        )
+    variant_select_sql = ", ".join(
+        [
+            f"CASE WHEN {label.lower()}_variant_carriers.person_id IS NOT NULL THEN 1 ELSE 0 END AS is_{label.lower()}_carrier"
+            for label in variants_map.keys()
+        ]
+    )
     main_query = f"""
         SELECT p.person_id, p.year_of_birth, p.month_of_birth, p.day_of_birth, c_gender.concept_name AS sex_at_birth, MAX(e.entry_date) AS last_event_datetime, {variant_select_sql}
         FROM `{workspace_cdr}.person` AS p
@@ -41,233 +151,536 @@ def create_query_simplified(workspace_cdr, variants_map):
     """
     return main_query
 
+
 def calculate_apoe_carriers_improved(df):
-    is_rs429358, is_rs7412 = df['is_apoe_rs429358_carrier'].astype(bool), df['is_apoe_rs7412_carrier'].astype(bool)
-    df['is_apoe_e4_carrier'], df['is_apoe_e2_carrier'] = is_rs429358, is_rs7412
-    df['is_apoe_e3_carrier'] = (~is_rs429358) & (~is_rs7412)
+    is_rs429358, is_rs7412 = (
+        df["is_apoe_rs429358_carrier"].astype(bool),
+        df["is_apoe_rs7412_carrier"].astype(bool),
+    )
+    df["is_apoe_e4_carrier"], df["is_apoe_e2_carrier"] = is_rs429358, is_rs7412
+    df["is_apoe_e3_carrier"] = (~is_rs429358) & (~is_rs7412)
     return df
+
 
 def run_query(query):
     try:
         import pandas_gbq
-        return pandas_gbq.read_gbq(query, project_id=os.environ.get('GOOGLE_CLOUD_PROJECT'), dialect="standard", use_bqstorage_api=True)
+
+        return pandas_gbq.read_gbq(
+            query,
+            project_id=os.environ.get("GOOGLE_CLOUD_PROJECT"),
+            dialect="standard",
+            use_bqstorage_api=True,
+        )
     except Exception as e:
         print(f"  ERROR: BigQuery query failed: {e}")
         return pd.DataFrame()
 
+
 # --- ANALYSIS FUNCTIONS ---
 def perform_binary_age_analysis(df, variant_label, cutoff):
-    carrier_col = f'is_{variant_label.lower()}_carrier'
-    group_under = df[df['age'] < cutoff]
-    group_over = df[df['age'] >= cutoff]
+    carrier_col = f"is_{variant_label.lower()}_carrier"
+    group_under = df[df["age"] < cutoff]
+    group_over = df[df["age"] >= cutoff]
     carriers_under, total_under = group_under[carrier_col].sum(), len(group_under)
     carriers_over, total_over = group_over[carrier_col].sum(), len(group_over)
     if total_under == 0 or total_over == 0:
-        return {'odds_ratio': np.nan, 'p_value': np.nan}
-    odds_ratio, p_value = fisher_exact([[carriers_over, total_over - carriers_over], [carriers_under, total_under - carriers_under]])
-    return {'odds_ratio': odds_ratio, 'p_value': p_value, 'carriers_over': carriers_over, 'total_over': total_over, 'carriers_under': carriers_under, 'total_under': total_under}
+        return {"odds_ratio": np.nan, "p_value": np.nan}
+    odds_ratio, p_value = fisher_exact(
+        [
+            [carriers_over, total_over - carriers_over],
+            [carriers_under, total_under - carriers_under],
+        ]
+    )
+    return {
+        "odds_ratio": odds_ratio,
+        "p_value": p_value,
+        "carriers_over": carriers_over,
+        "total_over": total_over,
+        "carriers_under": carriers_under,
+        "total_under": total_under,
+    }
 
-def perform_age_stratified_analysis_normalized_to_baseline(data, variant_label, age_labels):
-    variant_carrier_col = f'is_{variant_label.lower()}_carrier'
-    data['age_bin'] = data['age_bin'].astype(pd.CategoricalDtype(categories=age_labels, ordered=True))
-    summary = data.groupby('age_bin', observed=False).agg(total_subjects=('person_id', 'count'), carriers=(variant_carrier_col, 'sum')).reset_index()
-    summary['carrier_freq'] = (summary['carriers'] / summary['total_subjects']).fillna(0)
-    baseline_row = summary[summary['age_bin'] == age_labels[0]]
-    baseline_freq = baseline_row['carrier_freq'].iloc[0] if not baseline_row.empty else 0
-    summary['normalized_change'] = ((summary['carrier_freq'] - baseline_freq) / baseline_freq * 100) if baseline_freq > 0 else 0
-    summary['variant'] = variant_label
+
+def perform_age_stratified_analysis_normalized_to_baseline(
+    data, variant_label, age_labels
+):
+    variant_carrier_col = f"is_{variant_label.lower()}_carrier"
+    data["age_bin"] = data["age_bin"].astype(
+        pd.CategoricalDtype(categories=age_labels, ordered=True)
+    )
+    summary = (
+        data.groupby("age_bin", observed=False)
+        .agg(
+            total_subjects=("person_id", "count"), carriers=(variant_carrier_col, "sum")
+        )
+        .reset_index()
+    )
+    summary["carrier_freq"] = (summary["carriers"] / summary["total_subjects"]).fillna(
+        0
+    )
+    baseline_row = summary[summary["age_bin"] == age_labels[0]]
+    baseline_freq = (
+        baseline_row["carrier_freq"].iloc[0] if not baseline_row.empty else 0
+    )
+    summary["normalized_change"] = (
+        ((summary["carrier_freq"] - baseline_freq) / baseline_freq * 100)
+        if baseline_freq > 0
+        else 0
+    )
+    summary["variant"] = variant_label
     return summary
 
+
 def calculate_control_ci(all_normalized_data, final_control_variants, age_labels):
-    control_stats_df = pd.DataFrame({'age_bin': age_labels})
-    control_data = all_normalized_data[[col for col in final_control_variants if col in all_normalized_data.columns]].dropna(axis=1, how='all')
+    control_stats_df = pd.DataFrame({"age_bin": age_labels})
+    control_data = all_normalized_data[
+        [col for col in final_control_variants if col in all_normalized_data.columns]
+    ].dropna(axis=1, how="all")
     n_controls = control_data.shape[1]
     if n_controls > 1:
         mean, sem = control_data.mean(axis=1), control_data.sem(axis=1)
         z_9999 = 3.891
-        control_stats_df.loc[:, 'control_mean'] = mean
-        control_stats_df.loc[:, 'control_ci_lower'] = mean - (z_9999 * sem)
-        control_stats_df.loc[:, 'control_ci_upper'] = mean + (z_9999 * sem)
-        control_stats_df.loc[:, 'n_controls'] = n_controls
+        control_stats_df.loc[:, "control_mean"] = mean
+        control_stats_df.loc[:, "control_ci_lower"] = mean - (z_9999 * sem)
+        control_stats_df.loc[:, "control_ci_upper"] = mean + (z_9999 * sem)
+        control_stats_df.loc[:, "n_controls"] = n_controls
     return control_stats_df.fillna(0)
 
-def plot_normalized_frequencies(all_normalized_data, variants_to_plot, control_stats_df, group_title):
+
+def plot_normalized_frequencies(
+    all_normalized_data, variants_to_plot, control_stats_df, group_title
+):
     plt.figure(figsize=(14, 8))
-    colors = {"GIMAP6_V65I": 'red', "GIMAP6_Q237R": 'pink', "TTR_V122I": 'purple', 'APOE_e4': 'darkblue', 'APOE_e2': 'skyblue', 'APOE_e3': 'green'}
+    colors = {
+        "GIMAP6_V65I": "red",
+        "GIMAP6_Q237R": "pink",
+        "TTR_V122I": "purple",
+        "APOE_e4": "darkblue",
+        "APOE_e2": "skyblue",
+        "APOE_e3": "green",
+    }
     for variant in variants_to_plot:
         if variant in all_normalized_data.columns:
-            sns.lineplot(x='age_bin', y=variant, data=all_normalized_data.dropna(subset=[variant]), marker='o', label=variant, color=colors.get(variant), linewidth=2.5)
-    n_controls = int(control_stats_df['n_controls'].iloc[0]) if not control_stats_df.empty else 0
+            sns.lineplot(
+                x="age_bin",
+                y=variant,
+                data=all_normalized_data.dropna(subset=[variant]),
+                marker="o",
+                label=variant,
+                color=colors.get(variant),
+                linewidth=2.5,
+            )
+    n_controls = (
+        int(control_stats_df["n_controls"].iloc[0]) if not control_stats_df.empty else 0
+    )
     if n_controls > 0:
-        plt.fill_between(control_stats_df['age_bin'], control_stats_df['control_ci_lower'], control_stats_df['control_ci_upper'], color='green', alpha=0.2, label='Control 99.99% CI')
-        plt.plot(control_stats_df['age_bin'], control_stats_df['control_mean'], label=f'Control Mean (N={n_controls})', color='black', linestyle='--', linewidth=2)
-    plt.title(f'Normalized Carrier Frequency Change by Age ({group_title})')
-    plt.xlabel('Age Group (Years)'); plt.ylabel('Percentage Change from <65 Baseline (%)')
-    plt.grid(axis='y', linestyle='--', alpha=0.7); plt.axhline(0, color='black', linewidth=0.8, linestyle=':'); plt.legend(title='Variant')
-    plt.xticks(rotation=45, ha='right'); plt.tight_layout(); plt.show()
+        plt.fill_between(
+            control_stats_df["age_bin"],
+            control_stats_df["control_ci_lower"],
+            control_stats_df["control_ci_upper"],
+            color="green",
+            alpha=0.2,
+            label="Control 99.99% CI",
+        )
+        plt.plot(
+            control_stats_df["age_bin"],
+            control_stats_df["control_mean"],
+            label=f"Control Mean (N={n_controls})",
+            color="black",
+            linestyle="--",
+            linewidth=2,
+        )
+    plt.title(f"Normalized Carrier Frequency Change by Age ({group_title})")
+    plt.xlabel("Age Group (Years)")
+    plt.ylabel("Percentage Change from <65 Baseline (%)")
+    plt.grid(axis="y", linestyle="--", alpha=0.7)
+    plt.axhline(0, color="black", linewidth=0.8, linestyle=":")
+    plt.legend(title="Variant")
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.show()
 
-def plot_and_analyze_distributions(all_normalized_data, control_variants, test_variants, group_title):
+
+def plot_and_analyze_distributions(
+    all_normalized_data, control_variants, test_variants, group_title
+):
     print("\n--- All Variants vs. Control Distribution Analysis ---")
-    variant_colors = {'GIMAP6_V65I': 'red', 'GIMAP6_Q237R': 'pink', 'TTR_V122I': 'purple', 'APOE_e4': 'darkblue', 'APOE_e2': 'skyblue', 'APOE_e3': 'green'}
-    available_test_variants = [v for v in test_variants if v in all_normalized_data.columns]
+    variant_colors = {
+        "GIMAP6_V65I": "red",
+        "GIMAP6_Q237R": "pink",
+        "TTR_V122I": "purple",
+        "APOE_e4": "darkblue",
+        "APOE_e2": "skyblue",
+        "APOE_e3": "green",
+    }
+    available_test_variants = [
+        v for v in test_variants if v in all_normalized_data.columns
+    ]
     if not available_test_variants:
         print("  Skipping distribution plot: No test variants found.")
         return pd.DataFrame()
 
-    control_data_long = all_normalized_data.melt(id_vars=['age_bin'], value_vars=control_variants, var_name='variant', value_name='normalized_change').dropna()
-    test_data_list = [all_normalized_data[['age_bin', v]].rename(columns={v: 'normalized_change'}).assign(variant=v) for v in available_test_variants]
+    control_data_long = all_normalized_data.melt(
+        id_vars=["age_bin"],
+        value_vars=control_variants,
+        var_name="variant",
+        value_name="normalized_change",
+    ).dropna()
+    test_data_list = [
+        all_normalized_data[["age_bin", v]]
+        .rename(columns={v: "normalized_change"})
+        .assign(variant=v)
+        for v in available_test_variants
+    ]
     test_data_combined = pd.concat(test_data_list, ignore_index=True).dropna()
-    baseline_category = all_normalized_data['age_bin'].cat.categories[0]
-    age_categories_to_plot = all_normalized_data['age_bin'].cat.categories.drop(baseline_category)
-    control_data_to_plot = control_data_long[control_data_long['age_bin'] != baseline_category]
+    baseline_category = all_normalized_data["age_bin"].cat.categories[0]
+    age_categories_to_plot = all_normalized_data["age_bin"].cat.categories.drop(
+        baseline_category
+    )
+    control_data_to_plot = control_data_long[
+        control_data_long["age_bin"] != baseline_category
+    ]
 
     stats_results = []
     for age_bin in age_categories_to_plot:
         for variant in available_test_variants:
-            variant_series = test_data_combined[(test_data_combined['age_bin'] == age_bin) & (test_data_combined['variant'] == variant)]['normalized_change']
-            if variant_series.empty: continue
+            variant_series = test_data_combined[
+                (test_data_combined["age_bin"] == age_bin)
+                & (test_data_combined["variant"] == variant)
+            ]["normalized_change"]
+            if variant_series.empty:
+                continue
             variant_val = variant_series.iloc[0]
-            control_vals = control_data_to_plot[control_data_to_plot['age_bin'] == age_bin]['normalized_change']
+            control_vals = control_data_to_plot[
+                control_data_to_plot["age_bin"] == age_bin
+            ]["normalized_change"]
             if len(control_vals) > 1:
-                mean_control, std_control, n_controls = control_vals.mean(), control_vals.std(), len(control_vals)
+                mean_control, std_control, n_controls = (
+                    control_vals.mean(),
+                    control_vals.std(),
+                    len(control_vals),
+                )
                 if std_control > 0:
                     z_score = (variant_val - mean_control) / std_control
                     p_value = 2 * (1 - norm.cdf(abs(z_score)))
-                    stats_results.append({'age_bin': age_bin, 'variant': variant, 'variant_change (%)': variant_val, 'control_mean_change (%)': mean_control, 'n_controls': n_controls, 'p_value': p_value})
-    
+                    stats_results.append(
+                        {
+                            "age_bin": age_bin,
+                            "variant": variant,
+                            "variant_change (%)": variant_val,
+                            "control_mean_change (%)": mean_control,
+                            "n_controls": n_controls,
+                            "p_value": p_value,
+                        }
+                    )
+
     stats_df = pd.DataFrame()
     if stats_results:
         stats_df = pd.DataFrame(stats_results)
-        stats_df['p_adj_fdr'] = multipletests(stats_df['p_value'], method='fdr_bh')[1]
+        stats_df["p_adj_fdr"] = multipletests(stats_df["p_value"], method="fdr_bh")[1]
 
     if control_data_to_plot.empty:
-        print("  Skipping distribution plot: No valid control data after excluding baseline.")
+        print(
+            "  Skipping distribution plot: No valid control data after excluding baseline."
+        )
         return stats_df
 
-    plt.figure(figsize=(16, 10)); plot_type = "violin"
+    plt.figure(figsize=(16, 10))
+    plot_type = "violin"
     try:
-        sns.violinplot(x='age_bin', y='normalized_change', data=control_data_to_plot, inner='box', color='lightgray', order=age_categories_to_plot)
+        sns.violinplot(
+            x="age_bin",
+            y="normalized_change",
+            data=control_data_to_plot,
+            inner="box",
+            color="lightgray",
+            order=age_categories_to_plot,
+        )
     except Exception as e:
-        print(f"  --> WARNING: Violin plot failed, falling back to box plot. Reason: {e}")
+        print(
+            f"  --> WARNING: Violin plot failed, falling back to box plot. Reason: {e}"
+        )
         plot_type = "box"
-        plt.clf(); plt.figure(figsize=(16, 10))
-        sns.boxplot(x='age_bin', y='normalized_change', data=control_data_to_plot, color='lightgray', order=age_categories_to_plot)
+        plt.clf()
+        plt.figure(figsize=(16, 10))
+        sns.boxplot(
+            x="age_bin",
+            y="normalized_change",
+            data=control_data_to_plot,
+            color="lightgray",
+            order=age_categories_to_plot,
+        )
 
-    markers = ['D', 'o', 's', '^', 'v', 'P']
+    markers = ["D", "o", "s", "^", "v", "P"]
     for i, variant in enumerate(available_test_variants):
-        variant_data = test_data_combined[test_data_combined['variant'] == variant]
+        variant_data = test_data_combined[test_data_combined["variant"] == variant]
         if not variant_data.empty:
-            sns.stripplot(x='age_bin', y='normalized_change', data=variant_data, color=variant_colors.get(variant, 'black'), size=12, marker=markers[i % len(markers)], label=variant, order=age_categories_to_plot, linewidth=1, edgecolor='white')
-    
-    plt.title(f'Test Variants vs. Control Distribution ({plot_type.title()} Plot)\n{group_title}', fontsize=14)
-    plt.xlabel('Age Group (Years)'); plt.ylabel('Percentage Change from <65 Baseline (%)')
-    plt.axhline(0, color='black', linewidth=1, linestyle=':'); handles, labels = plt.gca().get_legend_handles_labels()
-    by_label = dict(zip(labels, handles)); plt.legend(by_label.values(), by_label.keys(), bbox_to_anchor=(1.05, 1), loc='upper left')
-    plt.grid(axis='y', linestyle='--', alpha=0.7); plt.tight_layout(); plt.show()
+            sns.stripplot(
+                x="age_bin",
+                y="normalized_change",
+                data=variant_data,
+                color=variant_colors.get(variant, "black"),
+                size=12,
+                marker=markers[i % len(markers)],
+                label=variant,
+                order=age_categories_to_plot,
+                linewidth=1,
+                edgecolor="white",
+            )
+
+    plt.title(
+        f"Test Variants vs. Control Distribution ({plot_type.title()} Plot)\n{group_title}",
+        fontsize=14,
+    )
+    plt.xlabel("Age Group (Years)")
+    plt.ylabel("Percentage Change from <65 Baseline (%)")
+    plt.axhline(0, color="black", linewidth=1, linestyle=":")
+    handles, labels = plt.gca().get_legend_handles_labels()
+    by_label = dict(zip(labels, handles))
+    plt.legend(
+        by_label.values(), by_label.keys(), bbox_to_anchor=(1.05, 1), loc="upper left"
+    )
+    plt.grid(axis="y", linestyle="--", alpha=0.7)
+    plt.tight_layout()
+    plt.show()
     return stats_df
 
-def run_unified_analysis(workspace_cdr, all_variants_map):
-    print("="*80 + "\n      Starting Full Analysis Workflow 🚀\n" + "="*80)
-    data = run_query(create_query_simplified(workspace_cdr, all_variants_map))
-    if data.empty: return print("\nFATAL ERROR: No data retrieved.")
-    data = calculate_apoe_carriers_improved(data)
-    data['birth_datetime'] = pd.to_datetime(data[['year_of_birth', 'month_of_birth', 'day_of_birth']].fillna(1).rename(columns=lambda c: c.replace('_of_birth', '')))
-    data['age'] = (pd.to_datetime(data['last_event_datetime']) - data['birth_datetime']).dt.days / 365.25
-    data = data[(data['age'] >= 18) & (data['age'] <= 100)].copy()
-    data['sex'] = data['sex_at_birth'].apply(lambda x: 'Female' if 'Female' in str(x) else 'Male')
 
-    all_analysis_variants = [v for v in all_variants_map.keys() if 'APOE_rs' not in v] + ['APOE_e4', 'APOE_e2', 'APOE_e3']
-    control_variants = [label for label, freq in {lbl: data[f'is_{lbl.lower()}_carrier'].mean() for lbl in all_analysis_variants}.items() if "CONTROL" in label.upper() and 0.02 <= freq <= 0.08]
-    test_variants = ["GIMAP6_V65I", "TTR_V122I", "GIMAP6_Q237R", 'APOE_e4', 'APOE_e2', 'APOE_e3']
+def run_unified_analysis(workspace_cdr, all_variants_map):
+    print("=" * 80 + "\n      Starting Full Analysis Workflow 🚀\n" + "=" * 80)
+    data = run_query(create_query_simplified(workspace_cdr, all_variants_map))
+    if data.empty:
+        return print("\nFATAL ERROR: No data retrieved.")
+    data = calculate_apoe_carriers_improved(data)
+    data["birth_datetime"] = pd.to_datetime(
+        data[["year_of_birth", "month_of_birth", "day_of_birth"]]
+        .fillna(1)
+        .rename(columns=lambda c: c.replace("_of_birth", ""))
+    )
+    data["age"] = (
+        pd.to_datetime(data["last_event_datetime"]) - data["birth_datetime"]
+    ).dt.days / 365.25
+    data = data[(data["age"] >= 18) & (data["age"] <= 100)].copy()
+    data["sex"] = data["sex_at_birth"].apply(
+        lambda x: "Female" if "Female" in str(x) else "Male"
+    )
+
+    all_analysis_variants = [
+        v for v in all_variants_map.keys() if "APOE_rs" not in v
+    ] + ["APOE_e4", "APOE_e2", "APOE_e3"]
+    control_variants = [
+        label
+        for label, freq in {
+            lbl: data[f"is_{lbl.lower()}_carrier"].mean()
+            for lbl in all_analysis_variants
+        }.items()
+        if "CONTROL" in label.upper() and 0.02 <= freq <= 0.08
+    ]
+    test_variants = [
+        "GIMAP6_V65I",
+        "TTR_V122I",
+        "GIMAP6_Q237R",
+        "APOE_e4",
+        "APOE_e2",
+        "APOE_e3",
+    ]
     variants_to_analyze = test_variants + control_variants
-    variants_to_plot = ["GIMAP6_V65I", "TTR_V122I", "GIMAP6_Q237R", 'APOE_e4']
+    variants_to_plot = ["GIMAP6_V65I", "TTR_V122I", "GIMAP6_Q237R", "APOE_e4"]
     print(f"  Selected {len(control_variants)} control variants for analysis.")
 
     # --- PART 1: BINARY ODDS RATIO ANALYSIS ---
     binary_cutoffs = [75, 80, 85]
-    print(f"\n\n{'='*80}\n>>> PART 1: Binary Odds Ratio Analysis for cutoffs: {binary_cutoffs}\n{'='*80}")
+    print(
+        f"\n\n{'='*80}\n>>> PART 1: Binary Odds Ratio Analysis for cutoffs: {binary_cutoffs}\n{'='*80}"
+    )
     all_binary_results = []
     for cutoff in binary_cutoffs:
-        for group_name, group_data in [("Overall", data), ("Male", data[data['sex'] == 'Male']), ("Female", data[data['sex'] == 'Female'])]:
-            if group_data.empty: continue
+        for group_name, group_data in [
+            ("Overall", data),
+            ("Male", data[data["sex"] == "Male"]),
+            ("Female", data[data["sex"] == "Female"]),
+        ]:
+            if group_data.empty:
+                continue
             for variant in variants_to_analyze:
                 stats = perform_binary_age_analysis(group_data, variant, cutoff)
-                all_binary_results.append({'cutoff': cutoff, 'cohort': group_name, 'variant': variant, **stats})
-    
-    binary_results_df = pd.DataFrame(all_binary_results).dropna(subset=['p_value'])
-    binary_results_df['freq_over'] = (binary_results_df['carriers_over'] / binary_results_df['total_over']).fillna(0)
-    binary_results_df['freq_under'] = (binary_results_df['carriers_under'] / binary_results_df['total_under']).fillna(0)
-    binary_results_df['p_adj_fdr'] = binary_results_df.groupby(['cutoff', 'cohort'])['p_value'].transform(lambda x: multipletests(x, method='fdr_bh')[1])
-    
-    display_cols = ['cutoff', 'cohort', 'variant', 'carriers_over', 'total_over', 'freq_over', 'carriers_under', 'total_under', 'freq_under', 'odds_ratio', 'p_value', 'p_adj_fdr']
-    formatters = {'odds_ratio': '{:.2f}'.format, 'p_value': '{:.3f}'.format, 'p_adj_fdr': '{:.3f}'.format, 'freq_over': '{:.2%}'.format, 'freq_under': '{:.2%}'.format}
+                all_binary_results.append(
+                    {
+                        "cutoff": cutoff,
+                        "cohort": group_name,
+                        "variant": variant,
+                        **stats,
+                    }
+                )
+
+    binary_results_df = pd.DataFrame(all_binary_results).dropna(subset=["p_value"])
+    binary_results_df["freq_over"] = (
+        binary_results_df["carriers_over"] / binary_results_df["total_over"]
+    ).fillna(0)
+    binary_results_df["freq_under"] = (
+        binary_results_df["carriers_under"] / binary_results_df["total_under"]
+    ).fillna(0)
+    binary_results_df["p_adj_fdr"] = binary_results_df.groupby(["cutoff", "cohort"])[
+        "p_value"
+    ].transform(lambda x: multipletests(x, method="fdr_bh")[1])
+
+    display_cols = [
+        "cutoff",
+        "cohort",
+        "variant",
+        "carriers_over",
+        "total_over",
+        "freq_over",
+        "carriers_under",
+        "total_under",
+        "freq_under",
+        "odds_ratio",
+        "p_value",
+        "p_adj_fdr",
+    ]
+    formatters = {
+        "odds_ratio": "{:.2f}".format,
+        "p_value": "{:.3f}".format,
+        "p_adj_fdr": "{:.3f}".format,
+        "freq_over": "{:.2%}".format,
+        "freq_under": "{:.2%}".format,
+    }
     print(binary_results_df[display_cols].to_string(index=False, formatters=formatters))
 
     # --- PART 2: STRATIFIED ANALYSIS ---
-    stratified_configs = [{'name': 'Custom Scheme', 'bins': [18, 65, 75, 85, 101], 'labels': ['<65', '65-74', '75-84', '>=85']}]
+    stratified_configs = [
+        {
+            "name": "Custom Scheme",
+            "bins": [18, 65, 75, 85, 101],
+            "labels": ["<65", "65-74", "75-84", ">=85"],
+        }
+    ]
     for config in stratified_configs:
-        print(f"\n\n{'='*80}\n>>> PART 2: Stratified Analysis ({config['name']})\n{'='*80}")
-        data['age_bin'] = pd.cut(data['age'], bins=config['bins'], labels=config['labels'], right=False)
+        print(
+            f"\n\n{'='*80}\n>>> PART 2: Stratified Analysis ({config['name']})\n{'='*80}"
+        )
+        data["age_bin"] = pd.cut(
+            data["age"], bins=config["bins"], labels=config["labels"], right=False
+        )
         for group_name in ["Overall", "Male", "Female"]:
-            group_data = data if group_name == "Overall" else data[data['sex'] == group_name].copy()
-            if group_data.empty: continue
+            group_data = (
+                data
+                if group_name == "Overall"
+                else data[data["sex"] == group_name].copy()
+            )
+            if group_data.empty:
+                continue
             print(f"\n\n--- Cohort: {group_name} (Size: {len(group_data)}) ---")
-            
-            all_stratified_results = [perform_age_stratified_analysis_normalized_to_baseline(group_data.copy(), v, config['labels']) for v in variants_to_analyze]
+
+            all_stratified_results = [
+                perform_age_stratified_analysis_normalized_to_baseline(
+                    group_data.copy(), v, config["labels"]
+                )
+                for v in variants_to_analyze
+            ]
             full_stratified_df = pd.concat(all_stratified_results, ignore_index=True)
-            
+
             # --- PRINTING RAW COUNTS AND NORMALIZED FREQUENCY TABLE ---
-            print("\n📋 Table: Raw Counts and Normalized Frequency Change for All Variants")
-            formatters_strat = {'total_subjects': '{:,.0f}'.format, 'carriers': '{:,.0f}'.format, 'carrier_freq': '{:.3%}'.format, 'normalized_change': '{:.2f}%'.format}
-            print(full_stratified_df.to_string(index=False, formatters=formatters_strat))
-            
-            all_normalized_data = full_stratified_df.pivot(index='age_bin', columns='variant', values='normalized_change').reset_index()
+            print(
+                "\n📋 Table: Raw Counts and Normalized Frequency Change for All Variants"
+            )
+            formatters_strat = {
+                "total_subjects": "{:,.0f}".format,
+                "carriers": "{:,.0f}".format,
+                "carrier_freq": "{:.3%}".format,
+                "normalized_change": "{:.2f}%".format,
+            }
+            print(
+                full_stratified_df.to_string(index=False, formatters=formatters_strat)
+            )
+
+            all_normalized_data = full_stratified_df.pivot(
+                index="age_bin", columns="variant", values="normalized_change"
+            ).reset_index()
             for col in all_normalized_data.columns:
-                if col != 'age_bin': all_normalized_data[col] = pd.to_numeric(all_normalized_data[col], errors='coerce')
-            all_normalized_data['age_bin'] = pd.Categorical(all_normalized_data['age_bin'], categories=config['labels'], ordered=True)
-            
-            control_stats = calculate_control_ci(all_normalized_data, control_variants, config['labels'])
-            
+                if col != "age_bin":
+                    all_normalized_data[col] = pd.to_numeric(
+                        all_normalized_data[col], errors="coerce"
+                    )
+            all_normalized_data["age_bin"] = pd.Categorical(
+                all_normalized_data["age_bin"],
+                categories=config["labels"],
+                ordered=True,
+            )
+
+            control_stats = calculate_control_ci(
+                all_normalized_data, control_variants, config["labels"]
+            )
+
             # --- ADDED CODE START ---
             # Table 1: Data for the trend graph (mean and CI)
             print("\n📈 Table: Data for Control Mean Trend Line & CI")
             formatters_ci = {
-                'control_mean': '{:.4f}'.format,
-                'control_ci_lower': '{:.4f}'.format,
-                'control_ci_upper': '{:.4f}'.format
+                "control_mean": "{:.4f}".format,
+                "control_ci_lower": "{:.4f}".format,
+                "control_ci_upper": "{:.4f}".format,
             }
             print(control_stats.to_string(index=False, formatters=formatters_ci))
 
             # Table 2: Data for the violin plot (long-format raw data)
-            print("\n🎻 Table: Raw Data for Control Variant Distribution (for Violin Plot)")
+            print(
+                "\n🎻 Table: Raw Data for Control Variant Distribution (for Violin Plot)"
+            )
             control_violin_data = all_normalized_data.melt(
-                id_vars=['age_bin'],
+                id_vars=["age_bin"],
                 value_vars=control_variants,
-                var_name='variant',
-                value_name='normalized_change'
+                var_name="variant",
+                value_name="normalized_change",
             ).dropna()
-            
-            baseline_category = all_normalized_data['age_bin'].cat.categories[0]
-            control_violin_data_to_plot = control_violin_data[control_violin_data['age_bin'] != baseline_category]
-            control_violin_data_to_plot = control_violin_data_to_plot.sort_values(by=['age_bin', 'variant']).reset_index(drop=True)
 
-            formatters_violin = {'normalized_change': '{:.4f}'.format}
-            print(control_violin_data_to_plot.to_string(index=False, formatters=formatters_violin, max_rows=1000)) # Set max_rows to see all data
+            baseline_category = all_normalized_data["age_bin"].cat.categories[0]
+            control_violin_data_to_plot = control_violin_data[
+                control_violin_data["age_bin"] != baseline_category
+            ]
+            control_violin_data_to_plot = control_violin_data_to_plot.sort_values(
+                by=["age_bin", "variant"]
+            ).reset_index(drop=True)
+
+            formatters_violin = {"normalized_change": "{:.4f}".format}
+            print(
+                control_violin_data_to_plot.to_string(
+                    index=False, formatters=formatters_violin, max_rows=1000
+                )
+            )  # Set max_rows to see all data
             # --- ADDED CODE END ---
-            
-            plot_normalized_frequencies(all_normalized_data, variants_to_plot, control_stats, f"{group_name} - {config['name']}")
-            
-            stats_df = plot_and_analyze_distributions(all_normalized_data, control_variants, variants_to_plot, f"{group_name} - {config['name']}")
+
+            plot_normalized_frequencies(
+                all_normalized_data,
+                variants_to_plot,
+                control_stats,
+                f"{group_name} - {config['name']}",
+            )
+
+            stats_df = plot_and_analyze_distributions(
+                all_normalized_data,
+                control_variants,
+                variants_to_plot,
+                f"{group_name} - {config['name']}",
+            )
             if not stats_df.empty:
                 print("\n📊 Table: Statistical Comparison vs. Control Variants")
-                formatters_stats = {'variant_change (%)': '{:.2f}%'.format, 'control_mean_change (%)': '{:.2f}%'.format, 'p_value': '{:.4f}'.format, 'p_adj_fdr': '{:.4f}'.format}
+                formatters_stats = {
+                    "variant_change (%)": "{:.2f}%".format,
+                    "control_mean_change (%)": "{:.2f}%".format,
+                    "p_value": "{:.4f}".format,
+                    "p_adj_fdr": "{:.4f}".format,
+                }
                 print(stats_df.to_string(index=False, formatters=formatters_stats))
 
     print(f"\n\n{'#'*80}\n          Full Analysis Workflow Complete ✅\n{'#'*80}")
+
+
 def main():
-    os.environ.setdefault('WORKSPACE_CDR', 'fc-aou-cdr-prod-ct.C2024Q3R5')
-    workspace_cdr = os.environ['WORKSPACE_CDR']
+    os.environ.setdefault("WORKSPACE_CDR", "fc-aou-cdr-prod-ct.C2024Q3R5")
+    workspace_cdr = os.environ["WORKSPACE_CDR"]
     run_unified_analysis(workspace_cdr, VARIANTS)
+
 
 if __name__ == "__main__":
     main()

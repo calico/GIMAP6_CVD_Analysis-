@@ -1,0 +1,6 @@
+# Three scripts have no .py extension; include them so ruff formats them too.
+extend-include = [
+  "Scripts",
+  "Age-stratified carrier frequency analysis",
+  "GIMAP6 V65I homozygous genotype extraction_py",
+]
