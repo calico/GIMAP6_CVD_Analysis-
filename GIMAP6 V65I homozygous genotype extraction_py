@@ -5,21 +5,26 @@ import hail as hl
 bucket = os.getenv("WORKSPACE_BUCKET")
 print("Workspace Bucket:", bucket)
 
-# Initialize Hail with GRCh38 reference genome
-hl.init(default_reference='GRCh38', idempotent=True)
+# Path to the VCFs from your workspace's genomic extraction, e.g.
+# $WORKSPACE_BUCKET/genomic-extractions/<extraction-id>/vcfs/*.vcf.gz
+vcf_path = os.getenv("GIMAP6_VCF_PATH")
+if not vcf_path:
+    raise SystemExit(
+        "Set GIMAP6_VCF_PATH to the VCFs from your workspace's genomic extraction"
+    )
 
-# Define the updated VCF path
-vcf_path = "gs://fc-secure-5c6e17ee-dd81-4774-b01d-7decff242169/genomic-extractions/997399a4-eef8-491a-8600-f4389d523656/vcfs/*.vcf.gz"
+# Initialize Hail with GRCh38 reference genome
+hl.init(default_reference="GRCh38", idempotent=True)
 
 # Import VCF with array_elements_required=False to handle missing values
 mt = hl.import_vcf(vcf_path, force_bgz=True, array_elements_required=False)
 
 # Apply the filter for the new variant of interest (7-150628405-C-T)
 variant_filter = (
-    (mt.locus.contig == "chr7") &  # Ensure "chr7" matches the contig naming convention
-    (mt.locus.position == 150628405) & 
-    (mt.alleles[0] == "C") & 
-    (mt.alleles[1] == "T")
+    (mt.locus.contig == "chr7")  # Ensure "chr7" matches the contig naming convention
+    & (mt.locus.position == 150628405)
+    & (mt.alleles[0] == "C")
+    & (mt.alleles[1] == "T")
 )
 
 # Filter the rows (variants) based on your condition
